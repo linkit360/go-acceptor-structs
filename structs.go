@@ -20,8 +20,13 @@ type AggregateData struct {
 	Aggregated []Aggregate `json:"aggregated,omitempty"`
 }
 
-type BlackListParams struct {
+type BlackListGetParams struct {
 	ProviderName string `json:"provider_name,omitempty"`
+}
+
+type BlackListAddParams struct {
+	ProviderName string   `json:"provider_name,omitempty"`
+	Msisdns      []string `json:"msisdns,omitempty"`
 }
 
 type BlackListResponse struct {
