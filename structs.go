@@ -20,6 +20,12 @@ type AggregateData struct {
 	Aggregated []Aggregate `json:"aggregated,omitempty"`
 }
 
+/*
+	Example:
+
+	ProviderName: cheese
+	Time: time.Now().Format("2006-01-02")
+*/
 type BlackListGetParams struct {
 	ProviderName string `json:"provider_name,omitempty"`
 	Time         string `json:"time,omitempty"`
