@@ -22,6 +22,7 @@ type AggregateData struct {
 
 type BlackListGetParams struct {
 	ProviderName string `json:"provider_name,omitempty"`
+	Time         string `json:"time,omitempty"`
 }
 
 type BlackListAddParams struct {
