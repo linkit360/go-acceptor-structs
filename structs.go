@@ -39,3 +39,17 @@ type BlackListAddParams struct {
 type BlackListResponse struct {
 	Msisdns []string `json:"msisdns,omitempty"`
 }
+
+type CampaignsGetParams struct {
+	Country uint `json:"id_country,omitempty"`
+}
+
+type CampaignsResponse struct {
+	Campaigns []CampaignsCampaign `json:"campaigns,omitempty"`
+}
+
+type CampaignsCampaign struct {
+	Id    string `json:"id,omitempty"` // UUID
+	Title string `json:"title,omitempty"`
+	Link  string `json:"link,omitempty"`
+}
