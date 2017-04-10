@@ -41,7 +41,7 @@ type BlackListResponse struct {
 }
 
 type CampaignsGetParams struct {
-	Provider uint `json:"provider_name,omitempty"`
+	Provider string `json:"provider_name,omitempty"`
 }
 
 type CampaignsCampaign struct {
