@@ -34,6 +34,22 @@ type GetServicesResponse struct {
 }
 
 /*
+	Content
+
+*/
+type Content struct {
+	Id   int64
+	Path string
+	Name string
+}
+type GetContentParams struct {
+	ProviderName string `json:"provider_name,omitempty"`
+}
+type GetContentsResponse struct {
+	Contents []Content `json:"contents,omitempty"`
+}
+
+/*
 	Example:
 
 	ProviderName: cheese
