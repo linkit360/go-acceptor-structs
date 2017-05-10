@@ -1,5 +1,9 @@
 package go_acceptor_structs
 
+/*
+	Services
+
+*/
 type Service struct {
 	Id                  int64   `json:"id,omitempty"`
 	Price               float64 `json:"price,omitempty"`
@@ -21,12 +25,21 @@ type Service struct {
 	ContentIds          []int64 `json:"content_ids,omitempty"`
 }
 
+type GetServicesParams struct {
+	ProviderName string `json:"provider_name,omitempty"`
+}
+
+type GetServicesResponse struct {
+	Services map[int64]Service `json:"services,omitempty"`
+}
+
 /*
 	Example:
 
 	ProviderName: cheese
 	Time: time.Now().Format("2006-01-02")
 */
+
 type BlackListGetParams struct {
 	ProviderName string `json:"provider_name,omitempty"`
 	Time         string `json:"time,omitempty"`
@@ -41,6 +54,10 @@ type BlackListResponse struct {
 	Msisdns []string `json:"msisdns,omitempty"`
 }
 
+/*
+	Campaigns
+
+*/
 type CampaignsGetParams struct {
 	Provider string `json:"provider_name,omitempty"`
 }
