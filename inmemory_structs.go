@@ -6,6 +6,7 @@ package go_acceptor_structs
 */
 type Service struct {
 	Id                  int64   `json:"id,omitempty"`
+	Code                string  `json:"code,omitempty"`
 	Price               float64 `json:"price,omitempty"`
 	RetryDays           int     `json:"retry_days,omitempty"`       // for retries - days to keep retries, for periodic - subscription is alive
 	InactiveDays        int     `json:"inactive_days,omitempty"`    // days of unsuccessful charge turns subscription into inactive state
@@ -46,7 +47,7 @@ type GetContentParams struct {
 	ProviderName string `json:"provider_name,omitempty"`
 }
 type GetContentsResponse struct {
-	Contents []Content `json:"contents,omitempty"`
+	Contents map[int64]Content `json:"contents,omitempty"`
 }
 
 /*
