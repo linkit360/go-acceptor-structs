@@ -17,6 +17,7 @@ type Aggregate struct {
 	MoChargeSum          int64  `json:"mo_charge_sum,omitempty"`
 	MoChargeFailed       int64  `json:"mo_charge_failed,omitempty"`
 	MoRejected           int64  `json:"mo_rejected,omitempty"`
+	Outflow              int64  `json:"outflow,omitempty"`
 	RenewalTotal         int64  `json:"renewal,omitempty"`
 	RenewalChargeSuccess int64  `json:"renewal_charge_success,omitempty"`
 	RenewalChargeSum     int64  `json:"renewal_charge_sum,omitempty"`
