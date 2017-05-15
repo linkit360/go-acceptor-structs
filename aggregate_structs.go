@@ -1,6 +1,9 @@
 package go_acceptor_structs
 
-type Response struct{}
+type Response struct {
+	Ok    bool   `json:"ok"`
+	Error string `json:"error,omitempty"`
+}
 
 type Aggregate struct {
 	ProviderName         string `json:"provider_name,omitempty"`
