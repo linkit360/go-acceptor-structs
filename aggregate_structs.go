@@ -28,3 +28,7 @@ type Aggregate struct {
 type AggregateData struct {
 	Aggregated []Aggregate `json:"aggregated,omitempty"`
 }
+
+type AggregateResponse struct {
+	Status string `json:"status,omitempty"`
+}
