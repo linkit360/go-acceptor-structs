@@ -5,17 +5,18 @@ package go_acceptor_structs
 
 */
 type Service struct {
-	Id                  int64   `json:"id,omitempty"`
-	Code                string  `json:"code,omitempty"`
+	Id                  int64   `json:"id,omitempty"`   // unique id
+	Code                string  `json:"code,omitempty"` // operator service code
 	Price               float64 `json:"price,omitempty"`
-	RetryDays           int     `json:"retry_days,omitempty"`       // for retries - days to keep retries, for periodic - subscription is alive
-	InactiveDays        int     `json:"inactive_days,omitempty"`    // days of unsuccessful charge turns subscription into inactive state
-	GraceDays           int     `json:"grace_days,omitempty"`       // days in end of subscription period where always must be charged OK
-	PaidHours           int     `json:"paid_hours,omitempty"`       // rejected rule
-	DelayHours          int     `json:"delay_hours,omitempty"`      // repeat charge delay
+	RetryDays           int     `json:"retry_days,omitempty"`    // for retries - days to keep retries, for periodic - subscription is alive
+	InactiveDays        int     `json:"inactive_days,omitempty"` // days of unsuccessful charge turns subscription into inactive state
+	GraceDays           int     `json:"grace_days,omitempty"`    // days in end of subscription period where always must be charged OK
+	PaidHours           int     `json:"paid_hours,omitempty"`    // rejected rule
+	DelayHours          int     `json:"delay_hours,omitempty"`   // repeat charge delay
+	SMSOnSubscribe      string  `json:"sms_on_unsubscribe,omitempty"`
+	SMSOnCharged        string  `json:"sms_on_charged,omitempty"`
 	SMSOnUnsubscribe    string  `json:"sms_on_subscribe,omitempty"` // if empty, do not send
 	SMSOnContent        string  `json:"sms_on_content,omitempty"`
-	SMSOnSubscribe      string  `json:"sms_on_unsubscribe,omitempty"`
 	SMSOnRejected       string  `json:"sms_on_rejected,omitempty"`
 	SMSOnBlackListed    string  `json:"sms_on_blacklisted,omitempty"`
 	SMSOnPostPaid       string  `json:"sms_on_postpaid,omitempty"`
