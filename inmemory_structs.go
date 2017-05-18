@@ -5,8 +5,8 @@ package go_acceptor_structs
 
 */
 type Service struct {
-	Id                  int64   `json:"id,omitempty"`   // unique id
-	Code                string  `json:"code,omitempty"` // operator service code
+	Code string `json:"id,omitempty"` // unique id
+	//Code                string  `json:"code,omitempty"` // operator service code
 	Price               float64 `json:"price,omitempty"`
 	RetryDays           int     `json:"retry_days,omitempty"`    // for retries - days to keep retries, for periodic - subscription is alive
 	InactiveDays        int     `json:"inactive_days,omitempty"` // days of unsuccessful charge turns subscription into inactive state
@@ -32,7 +32,7 @@ type GetServicesParams struct {
 }
 
 type GetServicesResponse struct {
-	Services map[int64]Service `json:"services,omitempty"`
+	Services map[string]Service `json:"services,omitempty"`
 }
 
 /*
@@ -80,13 +80,22 @@ type CampaignsGetParams struct {
 	Provider string `json:"provider_name,omitempty"`
 }
 
-type CampaignsCampaign struct {
-	Id    string `json:"id,omitempty"` // UUID
-	Title string `json:"title,omitempty"`
-	Link  string `json:"link,omitempty"`
-	Lp    string `json:"lp,omitempty"` // UUID
+type Campaign struct {
+	Id               int64  `json:"id,omitempty"` // UUID
+	Title            string `json:"title,omitempty"`
+	Link             string `json:"link,omitempty"`
+	Lp               string `json:"lp,omitempty"` // UUID
+	Hash             string `json:"hash,omitempty"`
+	ServiceId        int64  `json:"service_id,omitempty"`
+	AutoClickRatio   int64  `json:"auto_click_ratio,omitempty"`
+	AutoClickEnabled bool   `json:"auto_click_enabled,omitempty"`
+	AutoClickCount   int64  `json:"auto_click_count,omitempty"`
+	PageSuccess      string `json:"page_success,omitempty"`
+	PageError        string `json:"page_error,omitempty"`
+	PageThankYou     string `json:"page_thank_you,omitempty"`
+	PageWelcome      string `json:"page_welcome,omitempty"`
 }
 
 type CampaignsResponse struct {
-	Campaigns []CampaignsCampaign `json:"campaigns,omitempty"`
+	Campaigns []Campaign `json:"campaigns,omitempty"`
 }
