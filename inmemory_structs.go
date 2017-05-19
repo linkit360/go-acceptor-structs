@@ -97,5 +97,5 @@ type Campaign struct {
 }
 
 type CampaignsResponse struct {
-	Campaigns []Campaign `json:"campaigns,omitempty"`
+	Campaigns map[string]Campaign `json:"campaigns,omitempty"`
 }
