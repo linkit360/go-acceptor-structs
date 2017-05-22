@@ -19,7 +19,12 @@ type Operator struct {
 	CountryName string // pakistan
 }
 
-type AggregateData struct {
+type AggregateResponse struct {
+	Ok    bool   `json:"ok"`
+	Error string `json:"error,omitempty"`
+}
+
+type AggregateRequest struct {
 	Aggregated []Aggregate `json:"aggregated,omitempty"`
 }
 
