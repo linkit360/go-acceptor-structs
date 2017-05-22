@@ -1,13 +1,54 @@
 package go_acceptor_structs
 
-type HandShake struct {
+type HandShakeReq struct {
 	InstanceId string `json:"insance_id,omitempty"` // provider name by instance id
 }
 
-type InitResponse struct {
-	BlackList []string            `json:"blacklist,omitempty"`
-	Campaigns map[string]Campaign `json:"campaigns,omitempty"`
-	Services  map[string]Service  `json:"services,omitempty"`
+type HandShakeResponse struct {
+	Ok        bool                `json:"ok"`                  // false if error, true if ok
+	Error     string              `json:"error,omitempty"`     // error in case of any error
+	BlackList []string            `json:"blacklist,omitempty"` // array of blacklisted numbers
+	Campaigns map[string]Campaign `json:"campaigns,omitempty"` // map by uuid
+	Services  map[string]Service  `json:"services,omitempty"`  // map by uuid
+	Operators map[string]Operator `json:"operators,omitempty"` // map by anything
+}
+
+type Operator struct {
+	Name        string // mobiilnk
+	Code        int64  // mcc mnc: 41001
+	CountryName string // pakistan
+}
+
+type AggregateData struct {
+	Aggregated []Aggregate `json:"aggregated,omitempty"`
+}
+
+type Aggregate struct {
+	ProviderName           string `json:"provider_name,omitempty"`
+	OperatorCode           int64  `json:"operator_code,omitempty"`
+	ReportAt               int64  `json:"report_at,omitempty"`
+	CampaignCode           string `json:"id_campaign,omitempty"`
+	LpHits                 int64  `json:"lp_hits,omitempty"`
+	LpMsisdnHits           int64  `json:"lp_msisdn_hits,omitempty"`
+	MoTotal                int64  `json:"mo,omitempty"`
+	MoChargeSuccess        int64  `json:"mo_charge_success,omitempty"`
+	MoChargeSum            int64  `json:"mo_charge_sum,omitempty"`
+	MoChargeFailed         int64  `json:"mo_charge_failed,omitempty"`
+	MoRejected             int64  `json:"mo_rejected,omitempty"`
+	Outflow                int64  `json:"outflow,omitempty"`
+	RenewalTotal           int64  `json:"renewal,omitempty"`
+	RenewalChargeSuccess   int64  `json:"renewal_charge_success,omitempty"`
+	RenewalChargeSum       int64  `json:"renewal_charge_sum,omitempty"`
+	RenewalFailed          int64  `json:"renewal_failed,omitempty"`
+	InjectionTotal         int64  `json:"injection,omitempty"`
+	InjectionChargeSuccess int64  `json:"injection_charge_success,omitempty"`
+	InjectionChargeSum     int64  `json:"injection_charge_sum,omitempty"`
+	InjectionFailed        int64  `json:"injection_failed,omitempty"`
+	ExpiredTotal           int64  `json:"expired,omitempty"`
+	ExpiredChargeSuccess   int64  `json:"expired_charge_success,omitempty"`
+	ExpiredChargeSum       int64  `json:"expired_charge_sum,omitempty"`
+	ExpiredFailed          int64  `json:"expired_failed,omitempty"`
+	Pixels                 int64  `json:"pixels,omitempty"`
 }
 
 type Service struct {
@@ -47,9 +88,4 @@ type Campaign struct {
 	PageError        string `json:"page_error,omitempty"`
 	PageThankYou     string `json:"page_thank_you,omitempty"`
 	PageWelcome      string `json:"page_welcome,omitempty"`
-}
-
-type Content struct {
-	Id   int64
-	Name string
 }
