@@ -1,9 +1,15 @@
 package go_acceptor_structs
 
-/*
-	Services
+type HandShake struct {
+	InstanceId string `json:"insance_id,omitempty"` // provider name by instance id
+}
 
-*/
+type InitResponse struct {
+	BlackList []string            `json:"blacklist,omitempty"`
+	Campaigns map[string]Campaign `json:"campaigns,omitempty"`
+	Services  map[string]Service  `json:"services,omitempty"`
+}
+
 type Service struct {
 	Id                  string  `json:"id,omitempty"`   // unique id
 	Code                string  `json:"code,omitempty"` // previous service id
@@ -27,61 +33,8 @@ type Service struct {
 	ContentIds          []int64 `json:"content_ids,omitempty"`
 }
 
-type GetServicesParams struct {
-	ProviderName string `json:"provider_name,omitempty"`
-}
-
-type GetServicesResponse struct {
-	Services map[string]Service `json:"services,omitempty"`
-}
-
-/*
-	Content
-
-*/
-type Content struct {
-	Id   int64
-	Path string
-	Name string
-}
-type GetContentParams struct {
-	ProviderName string `json:"provider_name,omitempty"`
-}
-type GetContentsResponse struct {
-	Contents map[int64]Content `json:"contents,omitempty"`
-}
-
-/*
-	Example:
-
-	ProviderName: cheese
-	Time: time.Now().Format("2006-01-02")
-*/
-
-type BlackListGetParams struct {
-	ProviderName string `json:"provider_name,omitempty"`
-	Time         string `json:"time,omitempty"`
-}
-
-type BlackListAddParams struct {
-	ProviderName string   `json:"provider_name,omitempty"`
-	Msisdns      []string `json:"msisdns,omitempty"`
-}
-
-type BlackListResponse struct {
-	Msisdns []string `json:"msisdns,omitempty"`
-}
-
-/*
-	Campaigns
-
-*/
-type CampaignsGetParams struct {
-	Provider string `json:"provider_name,omitempty"`
-}
-
 type Campaign struct {
-	Id               int64  `json:"id,omitempty"`   // UUID
+	Id               string `json:"id,omitempty"`   // UUID
 	Code             string `json:"code,omitempty"` // previous id
 	Title            string `json:"title,omitempty"`
 	Link             string `json:"link,omitempty"`
@@ -96,6 +49,7 @@ type Campaign struct {
 	PageWelcome      string `json:"page_welcome,omitempty"`
 }
 
-type CampaignsResponse struct {
-	Campaigns map[string]Campaign `json:"campaigns,omitempty"`
+type Content struct {
+	Id   int64
+	Name string
 }
