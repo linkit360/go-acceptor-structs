@@ -11,9 +11,9 @@ type InitResponse struct {
 }
 
 type Service struct {
-	Id                  string  `json:"id,omitempty"`   // unique id
-	Code                string  `json:"code,omitempty"` // previous service id
-	Price               float64 `json:"price,omitempty"`
+	Id                  string  `json:"id,omitempty"`            // unique id
+	Code                string  `json:"code,omitempty"`          // previous service id
+	Price               int     `json:"price,omitempty"`         // в целых рублях
 	RetryDays           int     `json:"retry_days,omitempty"`    // for retries - days to keep retries, for periodic - subscription is alive
 	InactiveDays        int     `json:"inactive_days,omitempty"` // days of unsuccessful charge turns subscription into inactive state
 	GraceDays           int     `json:"grace_days,omitempty"`    // days in end of subscription period where always must be charged OK
