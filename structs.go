@@ -5,12 +5,13 @@ type HandShakeRequest struct {
 }
 
 type HandShakeResponse struct {
-	Ok        bool                `json:"ok"`                  // false if error, true if ok
-	Error     string              `json:"error,omitempty"`     // error in case of any error
-	BlackList []string            `json:"blacklist,omitempty"` // array of blacklisted numbers
-	Campaigns map[string]Campaign `json:"campaigns,omitempty"` // map by uuid
-	Services  map[string]Service  `json:"services,omitempty"`  // map by uuid
-	Operators map[string]Operator `json:"operators,omitempty"` // map by anything
+	Ok        bool                    `json:"ok"`                  // false if error, true if ok
+	Error     string                  `json:"error,omitempty"`     // error in case of any error
+	BlackList []string                `json:"blacklist,omitempty"` // array of blacklisted numbers
+	Campaigns map[string]Campaign     `json:"campaigns,omitempty"` // map by uuid
+	Services  map[string]Service      `json:"services,omitempty"`  // map by uuid
+	Operators map[string]Operator     `json:"operators,omitempty"` // map by anything
+	Pixels    map[string]PixelSetting `json:"pixel,omitempty"`     // map by anything
 }
 
 type Operator struct {
@@ -93,4 +94,16 @@ type Campaign struct {
 	PageError        string `json:"page_error,omitempty"`
 	PageThankYou     string `json:"page_thank_you,omitempty"`
 	PageWelcome      string `json:"page_welcome,omitempty"`
+}
+
+type PixelSetting struct {
+	Id            int64
+	CampaignCode  string
+	OperatorCode  int64
+	Publisher     string
+	Endpoint      string
+	Timeout       int
+	Enabled       bool
+	Ratio         int
+	SkipPixelSend bool
 }
