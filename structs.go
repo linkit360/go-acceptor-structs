@@ -29,10 +29,10 @@ type AggregateRequest struct {
 }
 
 type Aggregate struct {
-	ProviderName           string `json:"provider_name,omitempty"`
+	InstanceId             string `json:"instance_id,omitempty"`
 	OperatorCode           int64  `json:"operator_code,omitempty"`
 	ReportAt               int64  `json:"report_at,omitempty"`
-	CampaignCode           string `json:"id_campaign,omitempty"`
+	CampaignCode           string `json:"campaign_code,omitempty"`
 	LpHits                 int64  `json:"lp_hits,omitempty"`
 	LpMsisdnHits           int64  `json:"lp_msisdn_hits,omitempty"`
 	MoTotal                int64  `json:"mo,omitempty"`
