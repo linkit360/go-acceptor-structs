@@ -97,13 +97,12 @@ type Campaign struct {
 }
 
 type PixelSetting struct {
-	Id            string
-	CampaignCode  string
-	OperatorCode  int64
-	Publisher     string
-	Endpoint      string
-	Timeout       int
-	Enabled       bool
-	Ratio         int
-	SkipPixelSend bool
+	Id           string
+	CampaignCode string
+	OperatorCode int64
+	Publisher    string
+	Endpoint     string
+	Timeout      int
+	Enabled      bool
+	Ratio        int
 }
